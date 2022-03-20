@@ -1,12 +1,12 @@
 package com.suveybesena.retrofitcoroutines.data.remote.api
 
-import com.suveybesena.retrofitcoroutines.data.models.NewsResponse
+import com.suveybesena.retrofitcoroutines.data.model.NewsResponse
 import com.suveybesena.retrofitcoroutines.common.Constants.Companion.API_KEY
 import retrofit2.Response
 import retrofit2.http.GET
 import retrofit2.http.Query
 
-interface MyAPI {
+interface ArticleAPI {
 
     @GET("v2/top-headlines")
     suspend fun getNews(
