@@ -1,6 +1,7 @@
-package com.suveybesena.retrofitcoroutines.data.models
+package com.suveybesena.retrofitcoroutines.data.model
 
 
+import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 import com.google.gson.annotations.SerializedName
@@ -12,22 +13,22 @@ import java.io.Serializable
 )
 data class Article(
     @PrimaryKey(autoGenerate = true)
-    @SerializedName("id")
+    @ColumnInfo(name ="id" )
     var id: Int? = null,
-    @SerializedName("author")
+    @ColumnInfo(name ="author" )
     val author: String?,
-    @SerializedName("content")
+    @ColumnInfo(name ="content" )
     val content: String?,
-    @SerializedName("description")
+    @ColumnInfo(name ="description" )
     val description: String?,
-    @SerializedName("publishedAt")
+    @ColumnInfo(name ="publishedAt" )
     val publishedAt: String?,
-    @SerializedName("source")
+    @ColumnInfo(name ="source")
     val source: Source?,
-    @SerializedName("title")
+    @ColumnInfo(name ="title" )
     val title: String?,
-    @SerializedName("url")
+    @ColumnInfo(name ="url" )
     val url: String?,
-    @SerializedName("urlToImage")
+    @ColumnInfo(name ="urlToImage" )
     val urlToImage: String?
 ) : Serializable
