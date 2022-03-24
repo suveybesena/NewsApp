@@ -11,7 +11,7 @@ import com.google.android.material.snackbar.Snackbar
 import com.suveybesena.retrofitcoroutines.databinding.FragmentArticleBinding
 import com.suveybesena.retrofitcoroutines.presentation.MainActivity
 
-
+@AndroidEntryPoint
 class ArticleFragment : Fragment() {
 
     lateinit var viewModel: ArticleViewModel
