@@ -3,13 +3,17 @@ package com.suveybesena.retrofitcoroutines.presentation.news
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.suveybesena.retrofitcoroutines.data.models.NewsResponse
+import com.suveybesena.retrofitcoroutines.data.model.NewsResponse
 import com.suveybesena.retrofitcoroutines.data.repository.NewsRepository
 import com.suveybesena.retrofitcoroutines.common.Resources
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import retrofit2.Response
+import javax.inject.Inject
 
-class NewsViewModel(
+@HiltViewModel
+class NewsViewModel
+@Inject constructor(
     val newsRepository: NewsRepository
 ) : ViewModel() {
 
@@ -28,16 +32,14 @@ class NewsViewModel(
 
     private fun handleNewsResponse(response: Response<NewsResponse>): Resources<NewsResponse> {
         if (response.isSuccessful) {
-            response.body().let { resultResponse ->
-                return resultResponse?.let { Resources.success(it) }!!
+            response.body()?.let { resultResponse ->
+                return resultResponse.let {
+                    Resources.success(it)
+                }
             }
         }
         return Resources.error(response.message())
     }
-
-
-
-
 
 
 }
