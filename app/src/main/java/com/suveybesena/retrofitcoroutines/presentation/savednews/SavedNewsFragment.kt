@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -14,11 +15,12 @@ import com.google.android.material.snackbar.Snackbar
 import com.suveybesena.retrofitcoroutines.adapters.NewsAdapter
 import com.suveybesena.retrofitcoroutines.databinding.FragmentSavedNewsBinding
 import com.suveybesena.retrofitcoroutines.presentation.MainActivity
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.fragment_news.*
 
-
+@AndroidEntryPoint
 class SavedNewsFragment : Fragment() {
-    lateinit var viewModel: SavedNewsViewModel
+    private val viewModel: SavedNewsViewModel by viewModels()
     lateinit var newsAdapter: NewsAdapter
 
     private lateinit var binding: FragmentSavedNewsBinding
@@ -34,7 +36,6 @@ class SavedNewsFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        viewModel = (activity as MainActivity).savedNewsViewModel
         setupRecyclerView()
         observeData()
         initList()
@@ -70,14 +71,8 @@ class SavedNewsFragment : Fragment() {
     }
 
     private fun observeData() {
-        //viewModel.getSavedNews()
-        //viewModel.getSavedNews.observe(viewLifecycleOwner, Observer { list ->
-        //    newsAdapter.differ.submitList(list)
-        //})
-
         viewModel.getSavedNews().observe(viewLifecycleOwner, Observer { article ->
             newsAdapter.differ.submitList(article)
-
         })
     }
 
