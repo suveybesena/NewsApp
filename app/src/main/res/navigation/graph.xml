@@ -21,7 +21,7 @@
         tools:layout="@layout/fragment_article" >
         <argument
             android:name="article"
-            app:argType="com.suveybesena.retrofitcoroutines.data.models.Article" />
+            app:argType="com.suveybesena.retrofitcoroutines.data.model.Article" />
     </fragment>
     <fragment
         android:id="@+id/savedNewsFragment"
