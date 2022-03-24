@@ -8,7 +8,7 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.suveybesena.retrofitcoroutines.R
-import com.suveybesena.retrofitcoroutines.data.models.Article
+import com.suveybesena.retrofitcoroutines.data.model.Article
 import kotlinx.android.synthetic.main.item_article_preview.view.*
 
 
