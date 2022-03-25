@@ -27,7 +27,7 @@ class MainActivity : AppCompatActivity() {
         val bottomNavigationView = findViewById<BottomNavigationView>(R.id.bottom_navigation_view)
         val appBarConfiguration = AppBarConfiguration(
             setOf(
-                R.id.newsFragment, R.id.savedNewsFragment
+                R.id.newsFragment, R.id.searchNewsFragment ,R.id.savedNewsFragment
             )
         )
         setupActionBarWithNavController(navController, appBarConfiguration)
