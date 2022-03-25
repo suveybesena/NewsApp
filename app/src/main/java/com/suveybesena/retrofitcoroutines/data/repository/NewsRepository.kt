@@ -14,10 +14,14 @@ class NewsRepository @Inject constructor(
     suspend fun getNews(countryCode: String, pageNumber: Int) =
         api.getNews(countryCode, pageNumber)
 
+    suspend fun searchNews(countryCode: String, pageNumber: Int) =
+        api.searchForNews(countryCode, pageNumber)
+
     suspend fun upsert(article: Article) = db.upsert(article)
 
     fun getSavedNews() = db.getAllArticles()
 
     suspend fun deleteArticle(article: Article) = db.deleteArticles(article)
+
 
 }
